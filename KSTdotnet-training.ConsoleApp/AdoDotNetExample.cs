@@ -198,7 +198,7 @@ namespace KSTdotnet_training.ConsoleApp
             connection.Open();
 
             string query = $@"DELETE FROM [dbo].[Tbl_Blog]
-            WHER   BlogID=@BlogID";
+            where   BlogID=@BlogID";
 
             SqlCommand cmd = new SqlCommand(query, connection);
             cmd.Parameters.AddWithValue("@BlogID", blogID);

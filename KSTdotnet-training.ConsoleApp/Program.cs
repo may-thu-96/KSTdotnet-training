@@ -3,7 +3,15 @@
 
 using KSTdotnet_training.ConsoleApp;
 
-AdoDotNetExample adoDotNetExample=new AdoDotNetExample();
-//adoDotNetExample.Read();
-//adoDotNetExample.Create();
-adoDotNetExample.Edit();
+//AdoDotNetExample adoDotNetExample=new AdoDotNetExample();
+////adoDotNetExample.Read();
+////adoDotNetExample.Create();
+//adoDotNetExample.Delete();
+
+//DapperExample dapperExample = new DapperExample();
+//dapperExample.Read();
+//dapperExample.Create("aa","bb","cc");
+//dapperExample.Delete(3);
+//dapperExample.Delete(7);
+//dapperExample.Update(3,"aa", "aa", "aa");
+//dapperExample.Update(7, "bb", "bb", "bb");
