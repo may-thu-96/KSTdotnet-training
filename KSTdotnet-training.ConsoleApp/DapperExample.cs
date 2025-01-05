@@ -24,7 +24,7 @@ namespace KSTdotnet_training.ConsoleApp
                           ,[BlogContent]
                           ,[DeleteFlag]
                       FROM [dbo].[Tbl_Blog] where DeleteFlag=0";
-                var list = db.Query<BlogDataModel>(query).ToList();
+                var list = db.Query<BlogDapperDataModel>(query).ToList();
                 foreach (var item in list)
                 {
                     Console.WriteLine(item.BlogID);
@@ -51,7 +51,7 @@ namespace KSTdotnet_training.ConsoleApp
 
             using (IDbConnection db = new SqlConnection(_connectionString))
             {
-                int result = db.Execute(query, new BlogDataModel
+                int result = db.Execute(query, new BlogDapperDataModel
                 {
                     BlogTitle = title,
                     BlogAuthor = author,
@@ -72,7 +72,7 @@ namespace KSTdotnet_training.ConsoleApp
                           where DeleteFlag=0 and BlogID=@BlogID";
             using (IDbConnection db = new SqlConnection(_connectionString))
             {
-                var list = db.Query<BlogDataModel>(query, new { BlogID = blogId }).FirstOrDefault();
+                var list = db.Query<BlogDapperDataModel>(query, new { BlogID = blogId }).FirstOrDefault();
                 if (list is null)
                 {
                     Console.WriteLine("No Data Found.");
@@ -99,7 +99,7 @@ namespace KSTdotnet_training.ConsoleApp
 
             using (IDbConnection db = new SqlConnection(_connectionString))
             {
-                int result = db.Execute(query, new BlogDataModel
+                int result = db.Execute(query, new BlogDapperDataModel
                 {
                     BlogID = blogId,
                     BlogTitle = title,
