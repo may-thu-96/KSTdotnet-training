@@ -72,7 +72,7 @@ namespace KSTdotnet_training.ConsoleApp
                           where DeleteFlag=0 and BlogID=@BlogID";
             using (IDbConnection db = new SqlConnection(_connectionString))
             {
-                var list = db.Query<BlogDapperDataModel>(query, new { BlogID = blogId }).FirstOrDefault();
+                var list = db.QueryFirstOrDefault<BlogDapperDataModel>(query, new { BlogID = blogId });
                 if (list is null)
                 {
                     Console.WriteLine("No Data Found.");
