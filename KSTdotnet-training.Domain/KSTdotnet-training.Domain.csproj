@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>KSTdotnet_training.Domain</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KSTdotnet-training.DataBase\KSTdotnet-training.DataBase.csproj" />
+    <ProjectReference Include="..\KSTdotnet-training.Shared\KSTdotnet-training.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
