@@ -26,6 +26,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Document", "Document", "{33
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSTdotnet-training.Domain", "KSTdotnet-training.Domain\KSTdotnet-training.Domain.csproj", "{6E20EDE6-3487-4825-8F8A-5863A7528E8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSTdotnet-training.ConsoleApp3", "KSTdotnet-training.ConsoleApp3\KSTdotnet-training.ConsoleApp3.csproj", "{2CBF9EC8-FF5B-4D0E-968D-84A1355A0018}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,10 @@ Global
 		{6E20EDE6-3487-4825-8F8A-5863A7528E8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E20EDE6-3487-4825-8F8A-5863A7528E8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E20EDE6-3487-4825-8F8A-5863A7528E8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CBF9EC8-FF5B-4D0E-968D-84A1355A0018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CBF9EC8-FF5B-4D0E-968D-84A1355A0018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CBF9EC8-FF5B-4D0E-968D-84A1355A0018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CBF9EC8-FF5B-4D0E-968D-84A1355A0018}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
