@@ -6,14 +6,18 @@ namespace KSTdotnet_training.DataBase.Models;
 
 public partial class AppDbContext : DbContext
 {
-    public AppDbContext()
+    public AppDbContext(DbContextOptions options) : base(options)
     {
     }
 
-    public AppDbContext(DbContextOptions<AppDbContext> options)
-        : base(options)
-    {
-    }
+    //public AppDbContext()
+    //{
+    //}
+
+    //public AppDbContext(DbContextOptions<AppDbContext> options)
+    //    : base(options)
+    //{
+    //}
 
     public virtual DbSet<TblAddress> TblAddresses { get; set; }
 
@@ -36,15 +40,15 @@ public partial class AppDbContext : DbContext
     //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
     //        => optionsBuilder.UseSqlServer("Server=DESKTOP-AQCT4ER\\MSSQLSERVER2016;Database=DotNetTraining;User Id=sa;Password=sasa;TrustServerCertificate=True;");
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        string connectionString = "Data Source=DESKTOP-AQCT4ER\\MSSQLSERVER2016;Initial Catalog=DotNetTraining;User ID=sa;Password=sasa;TrustServerCertificate=true;";
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //    string connectionString = "Data Source=DESKTOP-AQCT4ER\\MSSQLSERVER2016;Initial Catalog=DotNetTraining;User ID=sa;Password=sasa;TrustServerCertificate=true;";
 
-        if (!optionsBuilder.IsConfigured)
-        {
-            optionsBuilder.UseSqlServer(connectionString);
-        }
-    }
+    //    if (!optionsBuilder.IsConfigured)
+    //    {
+    //        optionsBuilder.UseSqlServer(connectionString);
+    //    }
+    //}
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<TblAddress>(entity =>

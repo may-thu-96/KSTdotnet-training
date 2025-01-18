@@ -9,14 +9,19 @@ using System.Threading.Tasks;
 
 namespace KSTdotnet_training.Domain.Features.Blog
 {
-    public class BlogsService
+    public class BlogService :IBlogService
     {
         private readonly AppDbContext _db;
 
-        public BlogsService()
+        public BlogService(AppDbContext db)
         {
-            _db = new AppDbContext();
+            _db = db;
         }
+
+        //public BlogService()
+        //{
+        //    _db = new AppDbContext();
+        //}
 
         public List<TblBlog> GetBlogs()
         {
@@ -28,7 +33,7 @@ namespace KSTdotnet_training.Domain.Features.Blog
         public TblBlog GetByIDBlogs(int id)
         {
             var item = _db.TblBlogs.AsNoTracking().FirstOrDefault(x => x.BlogId == id);
-             
+
             return item;
         }
 
@@ -98,11 +103,11 @@ namespace KSTdotnet_training.Domain.Features.Blog
 
             }
             _db.Entry(item).State = EntityState.Deleted;
-            int result= _db.SaveChanges();
+            int result = _db.SaveChanges();
 
-            return result>0;
+            return result > 0;
         }
-         
+
 
     }
 }

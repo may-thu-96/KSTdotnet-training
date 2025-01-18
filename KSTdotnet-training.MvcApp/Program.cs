@@ -1,4 +1,17 @@
+using KSTdotnet_training.DataBase.Models;
+using KSTdotnet_training.Domain.Features.Blog;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddDbContext<AppDbContext>(opt =>
+{
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
+});
+builder.Services.AddScoped<IBlogService, BlogService>();
+//builder.Services.AddScoped<IBlogService, BlogService>();
+//builder.Services.AddScoped<IBlogService, BlogService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

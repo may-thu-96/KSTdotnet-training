@@ -1,4 +1,5 @@
 ﻿using KSTdotnet_training.Domain.Features.Blog;
+using Microsoft.AspNetCore.Mvc;
 using System.Reflection.Metadata;
 
 namespace KSTdotnet_training.MinimalApi.EndPoints
@@ -8,9 +9,9 @@ namespace KSTdotnet_training.MinimalApi.EndPoints
         public static void UseBlogEndPoint(this IEndpointRouteBuilder app)
         {
 
-            app.MapGet("/blogs", () =>
+            app.MapGet("/blogs", ([FromServices] BlogService blogsService) =>
             {
-                BlogsService blogsService = new BlogsService();
+                //BlogsService blogsService = new BlogsService();
 
                 var lst = blogsService.GetBlogs();
 
@@ -19,9 +20,9 @@ namespace KSTdotnet_training.MinimalApi.EndPoints
             }).WithName("GetBlog")
             .WithOpenApi();
 
-            app.MapGet("/blogs/{id}", (int id) =>
+            app.MapGet("/blogs/{id}", ([FromServices] BlogService blogsService,int id) =>
             {
-                BlogsService blogsService = new BlogsService();
+               // BlogsService blogsService = new BlogsService();
 
                 var item = blogsService.GetByIDBlogs(id);
 
@@ -35,9 +36,9 @@ namespace KSTdotnet_training.MinimalApi.EndPoints
             }).WithName("GetByIDBlog")
             .WithOpenApi();
 
-            app.MapPost("/blogs", (TblBlog blog) =>
+            app.MapPost("/blogs", ([FromServices] BlogService blogsService,TblBlog blog) =>
             {
-                BlogsService blogsService = new BlogsService();
+               // BlogsService blogsService = new BlogsService();
 
                 var item = blogsService.CreateBlogs(blog);
 
@@ -46,9 +47,9 @@ namespace KSTdotnet_training.MinimalApi.EndPoints
             }).WithName("CreateBlog")
             .WithOpenApi();
 
-            app.MapPut("/blogs/{id}", (int id, TblBlog blog) =>
+            app.MapPut("/blogs/{id}", ([FromServices] BlogService blogsService,int id, TblBlog blog) =>
             {
-                BlogsService blogsService = new BlogsService();
+               // BlogsService blogsService = new BlogsService();
 
                 var item = blogsService.UpdateBlogs(id, blog);
 
@@ -63,9 +64,9 @@ namespace KSTdotnet_training.MinimalApi.EndPoints
             }).WithName("UpdateBlog")
             .WithOpenApi();
 
-            app.MapDelete("/blogs/{id}", (int id) =>
+            app.MapDelete("/blogs/{id}", ([FromServices] BlogService blogsService,int id) =>
             {
-                BlogsService blogsService = new BlogsService();
+               // BlogsService blogsService = new BlogsService();
 
                 var item = blogsService.DeleteBlogs(id);
 

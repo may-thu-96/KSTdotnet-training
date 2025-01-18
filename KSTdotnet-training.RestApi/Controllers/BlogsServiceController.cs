@@ -10,12 +10,17 @@ namespace KSTdotnet_training.RestApi.Controllers
     [ApiController]
     public class BlogsServiceController : ControllerBase
     {
-        private readonly BlogsService _blogsService;
+        private readonly IBlogService _blogsService;
 
-        public BlogsServiceController()
+        public BlogsServiceController(IBlogService blogsService)
         {
-            _blogsService = new BlogsService();
+            _blogsService = blogsService;
         }
+
+        //public BlogsServiceController()
+        //{
+        //    _blogsService = new BlogService();
+        //}
 
         [HttpGet]
         public IActionResult GetBlog()
