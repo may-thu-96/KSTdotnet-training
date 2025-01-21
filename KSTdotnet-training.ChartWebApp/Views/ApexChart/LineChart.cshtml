@@ -1,0 +1,52 @@
+﻿@model ApexChartLineChartModel
+
+@{
+    int[] _seriesData = Model.SeriesData;
+    string[] _categories = Model.Categories;
+}
+
+<div id="chart"></div>
+
+@section scripts
+{
+    <script>
+        const _seriesData = @Html.Raw(JsonConvert.SerializeObject(_seriesData));
+        const _categories = @Html.Raw(JsonConvert.SerializeObject(_categories));
+
+        var options = {
+            series: [{
+                name: "Desktops",
+                data: _seriesData
+            }],
+            chart: {
+                height: 350,
+                type: 'line',
+                zoom: {
+                    enabled: false
+                }
+            },
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'straight'
+            },
+            title: {
+                text: 'Product Trends by Month',
+                align: 'left'
+            },
+            grid: {
+                row: {
+                    colors: ['#f3f3f3', 'transparent'],
+                    opacity: 0.5
+                }
+            },
+            xaxis: {
+                categories: _categories
+            }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+    </script>
+}

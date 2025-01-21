@@ -6,10 +6,10 @@ namespace KSTdotnet_training.MinimalApi.EndPoints
 {
     public static class BlogsServiceEndPoint
     {
-        public static void UseBlogEndPoint(this IEndpointRouteBuilder app)
+        public static void UseBlogsServiceEndPoint(this IEndpointRouteBuilder app)
         {
 
-            app.MapGet("/blogs", ([FromServices] BlogService blogsService) =>
+            app.MapGet("/blogs", ([FromServices] IBlogService blogsService) =>
             {
                 //BlogsService blogsService = new BlogsService();
 
@@ -20,7 +20,7 @@ namespace KSTdotnet_training.MinimalApi.EndPoints
             }).WithName("GetBlog")
             .WithOpenApi();
 
-            app.MapGet("/blogs/{id}", ([FromServices] BlogService blogsService,int id) =>
+            app.MapGet("/blogs/{id}", ([FromServices] IBlogService blogsService,int id) =>
             {
                // BlogsService blogsService = new BlogsService();
 
@@ -36,7 +36,7 @@ namespace KSTdotnet_training.MinimalApi.EndPoints
             }).WithName("GetByIDBlog")
             .WithOpenApi();
 
-            app.MapPost("/blogs", ([FromServices] BlogService blogsService,TblBlog blog) =>
+            app.MapPost("/blogs", ([FromServices] IBlogService blogsService,TblBlog blog) =>
             {
                // BlogsService blogsService = new BlogsService();
 
@@ -47,7 +47,7 @@ namespace KSTdotnet_training.MinimalApi.EndPoints
             }).WithName("CreateBlog")
             .WithOpenApi();
 
-            app.MapPut("/blogs/{id}", ([FromServices] BlogService blogsService,int id, TblBlog blog) =>
+            app.MapPut("/blogs/{id}", ([FromServices] IBlogService blogsService,int id, TblBlog blog) =>
             {
                // BlogsService blogsService = new BlogsService();
 
@@ -64,7 +64,7 @@ namespace KSTdotnet_training.MinimalApi.EndPoints
             }).WithName("UpdateBlog")
             .WithOpenApi();
 
-            app.MapDelete("/blogs/{id}", ([FromServices] BlogService blogsService,int id) =>
+            app.MapDelete("/blogs/{id}", ([FromServices] IBlogService blogsService,int id) =>
             {
                // BlogsService blogsService = new BlogsService();
 
