@@ -5,8 +5,6 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTdotnet-training.ConsoleApp", "KSTdotnet-training.ConsoleApp\KSTdotnet-training.ConsoleApp.csproj", "{6EEA56AE-E05D-4A0F-A38E-B937017B85C0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTdotnet-training.MvcApp", "KSTdotnet-training.MvcApp\KSTdotnet-training.MvcApp.csproj", "{556C19E1-10FA-41A0-B8AD-F8427BA67878}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTdotnet-training.DataBase", "KSTdotnet-training.DataBase\KSTdotnet-training.DataBase.csproj", "{BE9D4721-7EB0-459A-A469-D342A6747C51}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTdotnet-training.RestApi", "KSTdotnet-training.RestApi\KSTdotnet-training.RestApi.csproj", "{B60B95E7-D1DF-4B9B-841E-049866F3B9FB}"
@@ -28,7 +26,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTdotnet-training.Domain",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTdotnet-training.ConsoleApp3", "KSTdotnet-training.ConsoleApp3\KSTdotnet-training.ConsoleApp3.csproj", "{2CBF9EC8-FF5B-4D0E-968D-84A1355A0018}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSTdotnet-training.ChartWebApp", "KSTdotnet-training.ChartWebApp\KSTdotnet-training.ChartWebApp.csproj", "{E61430BD-40B3-461E-8F88-56E5DAB6F25E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KSTdotnet-training.ChartWebApp", "KSTdotnet-training.ChartWebApp\KSTdotnet-training.ChartWebApp.csproj", "{E61430BD-40B3-461E-8F88-56E5DAB6F25E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KSTdotnet-training.MvcApp", "KSTdotnet-training.MvcApp\KSTdotnet-training.MvcApp.csproj", "{6C584E6F-E98D-49CC-B4CE-3A5B48EF6E61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,10 +40,6 @@ Global
 		{6EEA56AE-E05D-4A0F-A38E-B937017B85C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EEA56AE-E05D-4A0F-A38E-B937017B85C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EEA56AE-E05D-4A0F-A38E-B937017B85C0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{556C19E1-10FA-41A0-B8AD-F8427BA67878}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{556C19E1-10FA-41A0-B8AD-F8427BA67878}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{556C19E1-10FA-41A0-B8AD-F8427BA67878}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{556C19E1-10FA-41A0-B8AD-F8427BA67878}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BE9D4721-7EB0-459A-A469-D342A6747C51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BE9D4721-7EB0-459A-A469-D342A6747C51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE9D4721-7EB0-459A-A469-D342A6747C51}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -80,6 +76,10 @@ Global
 		{E61430BD-40B3-461E-8F88-56E5DAB6F25E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E61430BD-40B3-461E-8F88-56E5DAB6F25E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E61430BD-40B3-461E-8F88-56E5DAB6F25E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C584E6F-E98D-49CC-B4CE-3A5B48EF6E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C584E6F-E98D-49CC-B4CE-3A5B48EF6E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C584E6F-E98D-49CC-B4CE-3A5B48EF6E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C584E6F-E98D-49CC-B4CE-3A5B48EF6E61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

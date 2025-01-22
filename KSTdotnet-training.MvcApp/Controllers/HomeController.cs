@@ -15,7 +15,10 @@ namespace KSTdotnet_training.MvcApp.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            ViewBag.Message = "Hello From ViewBag";
+            HomeRespondModel model= new HomeRespondModel();
+
+            return View(model);
         }
 
         public IActionResult Privacy()
@@ -23,15 +26,16 @@ namespace KSTdotnet_training.MvcApp.Controllers
             return View();
         }
 
+        public IActionResult Index2()
+        {
+            return View();
+        }
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public IActionResult Index2()
-        {
-            return View();
         }
     }
 }

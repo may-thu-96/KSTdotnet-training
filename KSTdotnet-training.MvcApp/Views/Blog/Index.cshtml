@@ -1,72 +1,65 @@
 ﻿@model List<TblBlog>
-
-
 @{
-    bool isShowMessage = TempData["isSuccess"] != null;
 
+    bool isShowMessage = TempData["isSuccess"] !=null;
     bool isSuccess = false;
-    string message = "";
-    if (isShowMessage)
+    string Message = "";
+    if(isShowMessage)
     {
         isSuccess = Convert.ToBoolean(TempData["isSuccess"]);
-        message = Convert.ToString(TempData["Message"]);
+        Message = Convert.ToString(TempData["Message"]);
     }
-
-
+    
 }
 @if(isShowMessage)
 {
-    @if (isSuccess)
+    if(isSuccess)
     {
-        <div class="alarm alert-success mb-5" role="alert">
-            @message
-        </div>
-        
+        <div class="alert alert-secondary" role="alert" > @Message </div>
     }
     else
     {
-        <div class="alarm alert-danger mb-5" role="alert">
-            @message
-        </div>
+        <div class="alert alert-danger" role="alert"> @Message </div>
     }
-}
-<a href="/blog/Create" class="btn btn-secondary">Create New Blog</a>
 
-<table class="table table-responsive ">
+}
+
+<a href="/Blog/Create" class="btn btn-outline-success">Create Blog</a>
+<table class="table table-responsive">
     <thead>
         <tr>
-            <th> </th>
-            <th>No.</th>
-            <th>Blog Title</th>
-            <th>Blog Author</th>
-            <th>Blog Content</th>
+            <th>#</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Content</th>
         </tr>
     </thead>
     <tbody>
-        @*   @foreach (var blog in Model)
+       @*  @foreach (var blog in Model)
         {
-        <tr>
-        <th>@blog.BlogId</th>
-        <th>@blog.BlogTitle</th>
-        <th>@blog.BlogAuthor</th>
-        <th>@blog.BlogContent</th>
-        </tr>
+            <tr>
+                <th>@blog.BlogId</th>
+                <th>@blog.BlogTitle</th>
+                <th>@blog.BlogAuthor</th>
+                <th>@blog.BlogContent</th>
+            </tr>
         } *@
-
-        @for (int i = 0; i < Model.Count; i++)
+        @for(int i=0; i< Model.Count; i++)
         {
             var blog = Model[i];
+
             <tr>
                 <th>
-                    <a href="/Blog/Edit/@(blog.BlogId)" class="btn btn-warning"> Edit </a>
-                    <a href="/Blog/Delete/@(blog.BlogId)" class="btn btn-danger"> Delete </a>
-                    @* <a href="/Blog/Delete?BlogId=@(blog.BlogId)" class="btn btn-danger"> Delete </a> *@
+                    <a href="/Blog/Edit/@(blog.BlogId)" class="btn btn-warning">Edit</a>
+                    <a href="/Blog/Delete/@(blog.BlogId)" class="btn btn-danger">Delete</a>
+                   @*  <a href="/Blog/Delete?BlogId=@(blog.BlogId)" class="btn btn-danger">Delete</a> *@
                 </th>
-                <th>@(i + 1)</th>
+                <th>@(i+1)</th>
                 <th>@blog.BlogTitle</th>
                 <th>@blog.BlogAuthor</th>
                 <th>@blog.BlogContent</th>
             </tr>
         }
+
     </tbody>
 </table>

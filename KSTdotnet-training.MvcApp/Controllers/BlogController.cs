@@ -1,7 +1,9 @@
-﻿using KSTdotnet_training.DataBase.Models;
+﻿
+using KSTdotnet_training.DataBase.Models;
 using KSTdotnet_training.Domain.Features.Blog;
 using KSTdotnet_training.MvcApp.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace KSTdotnet_training.MvcApp.Controllers
 {
@@ -17,9 +19,9 @@ namespace KSTdotnet_training.MvcApp.Controllers
         public IActionResult Index()
         {
             var lst = _blogService.GetBlogs();
+
             return View(lst);
         }
-
         [ActionName("Create")]
         public IActionResult BlogCreate()
         {
@@ -38,77 +40,79 @@ namespace KSTdotnet_training.MvcApp.Controllers
                     BlogAuthor = requestModel.Author,
                     BlogContent = requestModel.Content
                 });
-                ViewBag.isSuccess = true;
-                ViewBag.Message = "Blog Created Successfully.";
-
                 TempData["isSuccess"] = true;
-                TempData["Message"] = "Blog Created Successfully.";
+                TempData["Message"] = "Blog Create Successfully.";
             }
             catch (Exception ex)
             {
-                ViewBag.isSuccess = false;
-                ViewBag.Message = ex.ToString();
-
                 TempData["isSuccess"] = false;
-                TempData["Message"] = ex.ToString();
+                TempData["Message"] = ex.Message;
             }
 
-            return RedirectToAction("Index"); //ok
-            //var lst = _blogService.GetBlogs();//ok
-            //return View("Index", lst);
+            return RedirectToAction("Index");
         }
 
         [ActionName("Delete")]
         public IActionResult BlogDelete(int id)
         {
-            _blogService.DeleteBlogs(id);
+            try
+            {
+                _blogService.DeleteBlogs(id);
+                TempData["isSuccess"] = true;
+                TempData["Message"] = "Blog Delete Successfully.";
+            }
+            catch (Exception ex)
+            {
+                TempData["isSuccess"] = false;
+                TempData["Message"] = ex.Message;
+
+            }
+
 
             return RedirectToAction("Index");
-        }
 
+        }
         [ActionName("Edit")]
         public IActionResult BlogEdit(int id)
         {
-            var blog = _blogService.GetByIDBlogs(id);
+           
+               var blog= _blogService.GetByIDBlogs(id);
+                
             BlogRequestModel requestModel = new BlogRequestModel()
             {
-                Id = blog.BlogId,
-                Author = blog.BlogAuthor,
+                ID = blog.BlogId,
                 Title = blog.BlogTitle,
-                Content = blog.BlogContent,
+                Author = blog.BlogAuthor,
+                Content = blog.BlogContent
             };
+
             return View("BlogEdit", requestModel);
+
         }
 
-        [HttpPost]
         [ActionName("Update")]
-        public IActionResult BlogUpdate(int id,BlogRequestModel requestModel)
+        public IActionResult BlogUpdate(int id, BlogRequestModel requestModel)
         {
             try
             {
-                _blogService.UpdateBlogs(id,new TblBlog
+                _blogService.UpdateBlogs(id, new TblBlog()
                 {
                     BlogTitle = requestModel.Title,
                     BlogAuthor = requestModel.Author,
                     BlogContent = requestModel.Content
                 });
-                //ViewBag.isSuccess = true;
-                //ViewBag.Message = "Blog Updated Successfully.";
 
                 TempData["isSuccess"] = true;
-                TempData["Message"] = "Blog Updated Successfully.";
+                TempData["Message"] = "Blog Update Successfully.";
             }
             catch (Exception ex)
             {
-                //ViewBag.isSuccess = false;
-                //ViewBag.Message = ex.ToString();
-
                 TempData["isSuccess"] = false;
-                TempData["Message"] = ex.ToString();
+                TempData["Message"] = ex.Message;
+
             }
 
-            return RedirectToAction("Index");  
+            return RedirectToAction("Index");
         }
-
     }
 }

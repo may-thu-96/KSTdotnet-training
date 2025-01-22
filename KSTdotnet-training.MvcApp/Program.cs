@@ -4,17 +4,15 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
+builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection"));
 });
-builder.Services.AddScoped<IBlogService, BlogService>();
-//builder.Services.AddScoped<IBlogService, BlogService>();
-//builder.Services.AddScoped<IBlogService, BlogService>();
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IBlogService,BlogService>();
 
 var app = builder.Build();
 

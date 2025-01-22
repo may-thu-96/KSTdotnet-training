@@ -1,22 +1,22 @@
 ﻿@model BlogRequestModel
-
 @{
-    ViewData["Title"] = " Edit Blog " ;
+    ViewData["Title"] = "Blog Edit";
 }
 
-<form method="post" action="/Blog/Update/@Model.Id">
+<form method="post" action="/Blog/Update/@Model.ID">
     <div class="mb-3">
         <label for="txtTitle" class="form-label">Title</label>
-        <input type="text" class="form-label" id="txtTitle" name="Title" value="@Model.Title" >
+        <input type="text" class="form-control" id="txtTitle" value="@Model.Title" name="Title">
     </div>
     <div class="mb-3">
         <label for="txtAuthor" class="form-label">Author</label>
-        <input type="text" class="form-label" id="txtAuthor" name="Author" value="@Model.Author">
+        <input type="text" class="form-control" id="txtAuthor" value="@Model.Author" name="Author">
     </div>
     <div class="mb-3">
         <label for="txtContent" class="form-label">Content</label>
-        <input type="text" class="form-label" id="txtContent" name="Content" value="@Model.Content">
+        <input type="text" class="form-control" id="txtContent" value="@Model.Content" name="Content">
     </div>
     <button type="button" id="btnCancel" class="btn btn-secondary">Cancel</button>
-    <button type="submit" id="btnSave" class="btn btn-success">Save</button>
+    <button type="submit" id="btnUpdate" class="btn btn-success">Update</button>
 </form>
+
